@@ -18,8 +18,13 @@ An assistive object re-identification device for the visually impaired employing
 
 ## Todo
 
-- [ ] Test Code V1
+- [ ] Code
   - [X] Check/fix pin conflicts
+  - [X] Build Registry
+    - [X] Read all files in root directory, filter for WAVs, append to linked list (global length int)
+  - [ ] Save/Restore Registry to file on SD (might deprecate that first step eh?)
+  - [ ] Read IDs from NFTs
+  - [ ] etc.
 
 - [ ] Readme
   - [X] List libraries, modifications
