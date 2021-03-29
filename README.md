@@ -7,6 +7,8 @@ An assistive object re-identification device for the visually impaired employing
 ## Libraries
 
 - [WaveHC](https://github.com/adafruit/WaveHC) (see [setup](#setup) about pin number modifications)
+- [Adafruit PN532](https://github.com/adafruit/Adafruit-PN532)
+- [Adafruit BusIO](https://github.com/adafruit/Adafruit_BusIO)
 
 ## Setup
 
@@ -16,17 +18,43 @@ An assistive object re-identification device for the visually impaired employing
        - use the modified `WavePinDefs.h` from this repository
        - Set the **`DVOLUME`** macro (line 36 in `WaveHC.h`) to `1`
 
+
 ## Todo
 
-- [ ] Code
+- [ ] Test Code/Setup
   - [X] Check/fix pin conflicts
-  - [X] Build Registry
-    - [X] Read all files in root directory, filter for WAVs, append to linked list (global length int)
-  - [ ] Save/Restore Registry to file on SD (might deprecate that first step eh?)
-  - [ ] Read IDs from NFTs
-  - [ ] etc.
+  - [X] Play sound file
+  - [X] Build registry from TXT
+  - [X] Read/Write IDs from NFC tags
+  - [ ] Play registry on NFC read
+  - [ ] Create/update/delete files on SD
+    - [ ] Registry updates
+    - [ ] Audio file allocation, deletion, overwriting
+
+- [ ] Actual Code
+  - [X] Setup
+    - [X] POST (this will evolve, of course)
+    - [X] Build registry from SD file
+  - [ ] Main Loop
+    - [ ] Reading/Writing Tags
+      - [ ] Read a tag
+      - [ ] Check registry for tag ID
+      - [ ] If exists, play audio from file
+      - [ ] If conflict, write new non-conflicting ID to tag, (or if not exists) then:
+    - [ ] Record audio
+      - [ ] Prompt user to record audio
+      - [ ] Record audio signal to wave object
+      - [ ] Playback and confirm
+      - [ ] Write wave object to file
+      - [ ] Add filename and NFC ID to registry
+      - [ ] Update registry file
+
+- [ ] UI
+  - [ ] Prompt/startup audio
 
 - [ ] Readme
   - [X] List libraries, modifications
+  - [X] Timeline
+  - [ ] Testing procedures
 
 - [ ] Hardware BOM and assembly notes
