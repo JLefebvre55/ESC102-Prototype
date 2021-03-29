@@ -13,6 +13,8 @@ void fail_P(const char *str = "") {
     Serial.print(TIMESTR);
     PgmPrint("] ");
     SerialPrint_P(str);
+    PgmPrint("\nPrinting root directory:\n");
+    printDir(root);
     while(1);
 }
 
@@ -106,4 +108,13 @@ void playFile(dir_t path){
     //     Serial.print("': ")
     //     Serial.println(wave.errors);     // wave decoding errors
     // }
+}
+
+void printDir(FatReader &dir) {
+  FatReader file;
+  dir_t dirBuf;
+  while (dir.readDir(dirBuf) > 0) {    // Read every file in the directory one at a time
+    printEntryName(dirBuf);
+    Serial.println();
+  }
 }

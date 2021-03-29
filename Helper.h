@@ -29,5 +29,6 @@ void sdErrorCheck(void);
 void post(void);
 void findFAT(void);
 void playFile(dir_t file);
+void printDir(FatReader &dir);
 
 #endif

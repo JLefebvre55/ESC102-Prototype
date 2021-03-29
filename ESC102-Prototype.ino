@@ -9,22 +9,23 @@ void play(FatReader &dir);
 WAVRegistry* registry;
 
 void setup() {
-    Serial.begin(9600);
+    Serial.begin(115200);
 
-    putstring_nl("\nPOST:");
+    PgmPrintln("POST");
     post();
 
-    putstring_nl("\nGenerating registry...");
+    PgmPrintln("\nRegistry");
     generateRegistry(&registry);
 
-    Serial.println();
+    #if DEBUG
+    debug("Registry loaded (");
     Serial.print(*(registry->size));
-    putstring_nl(" WAV files found:");
-
+    PgmPrintln(" files):");
     for(int i = 0; i < *(registry->size); i++){
-        Serial.print(String(i)+" - "+String(registry->name));
+        Serial.print(String(i+1)+" - "+String(registry->name));
         registry = registry->next;
     }
+    #endif
 }
 
 void loop() {
