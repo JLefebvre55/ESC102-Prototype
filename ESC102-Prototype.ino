@@ -22,7 +22,7 @@ void setup() {
     Serial.print(*(registry->size));
     PgmPrintln(" files):");
     for(int i = 0; i < *(registry->size); i++){
-        Serial.print(String(i+1)+" - "+String(registry->name));
+        Serial.println(String(i+1)+" - "+String(registry->name));
         registry = registry->next;
     }
     #endif
